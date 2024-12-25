@@ -18,4 +18,8 @@ export default class LoginPage {
     static menuDashboard(){
         return cy.get('[class="oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module"]');
     }
+
+    static invalidCredentials(){
+        return cy.get('[class="oxd-text oxd-text--p oxd-alert-content-text"]');
+    }
 }
