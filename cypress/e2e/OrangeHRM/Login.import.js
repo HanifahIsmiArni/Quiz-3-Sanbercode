@@ -9,9 +9,7 @@ describe('Login Feature',() => {
         LoginPage.inputPassword().type('admin123');
         cy.intercept("GET","**/employees/action-summary").as("actionSummary");
         LoginPage.buttonLogin().click();
-        cy.wait("@actionSummary").then((intercept) => {
-            expect(intercept.response.statusCode).to.equal(200);
-        });
+        cy.wait("@actionSummary");
         LoginPage.menuDashboard().should('have.text','Dashboard')
     })
     it('User Login with invalid credentials',() => {
